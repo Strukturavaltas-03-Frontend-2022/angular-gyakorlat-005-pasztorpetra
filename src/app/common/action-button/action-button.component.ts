@@ -6,16 +6,16 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./action-button.component.scss'],
 })
 export class ActionButtonComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+  @Input() icon: string = 'fa-pen';
+  @Input() btnClass: string = 'btn-info';
+  @Input() text: string = '';
+  @Output() clicked: EventEmitter<boolean> = new EventEmitter();
 
   onUserClicked(): void {
     this.clicked.emit(true);
   }
 
-  @Input() icon: string = 'fa-pen';
-  @Input() btnClass: string = 'btn-info';
-  @Input() text: string = '';
-  @Output() clicked: EventEmitter<boolean> = new EventEmitter();
+  constructor() {}
+
+  ngOnInit(): void {}
 }
