@@ -12,9 +12,18 @@ export class DataListComponent implements OnInit {
   @Output() updateClick: EventEmitter<User> = new EventEmitter();
   @Output() deleteClick: EventEmitter<User> = new EventEmitter();
 
-  onSelectClick(): void {
-    this.selectClick.emit(dataRow);
+  onSelectClick(user: User): void {
+    this.selectClick.emit(user);
   }
+
+  onUpdateClick(user: User): void {
+    this.updateClick.emit(user);
+  }
+
+  onDeleteClick(user: User): void {
+    this.deleteClick.emit(user);
+  }
+
   constructor() {}
 
   ngOnInit(): void {}
